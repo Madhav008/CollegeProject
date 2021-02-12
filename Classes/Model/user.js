@@ -12,7 +12,10 @@ var User = new mongoose.Schema({
     type: String,
     require: true,
   },
-
+  googleId: {
+    type: String,
+    require: true,
+  },
   university: {
     type: String,
   },
@@ -29,9 +32,9 @@ var User = new mongoose.Schema({
   image: {
     type: String,
   },
-  accessToken:{
-    type : String,
-  }
+  accessToken: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("user", User);

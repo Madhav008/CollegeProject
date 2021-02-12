@@ -17,6 +17,7 @@ module.exports = (passport) => {
         name: profile.displayName,
         image: profile.photos[0].value,
         accessToken: accessToken,
+        googleId: profile.id
       }
 
       try {
