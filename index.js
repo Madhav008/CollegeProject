@@ -1,11 +1,11 @@
 var express = require("express");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const mongoose = require("mongoose");
-require("dotenv/config");
 
 const userRoute = require("./Classes/Routes/users");
 const classRoute = require("./Classes/Routes/classes");
+
+const connectDB = require("./config/db");
 
 require("./auth/google")(passport);
 
@@ -29,11 +29,13 @@ app.get(
   }
 );
 
-mongoose.connect(process.env.MongoURI, {
-  useNewUrlParser: true,
-  useFindAndModify: true,
-  useUnifiedTopology: true,
-});
+// mongoose.connect(process.env.MongoURI, {
+//   useNewUrlParser: true,
+//   useFindAndModify: true,
+//   useUnifiedTopology: true,
+// });
+
+connectDB();
 
 app.listen(process.env.PORT || 4000, function () {
   console.log("Server Started .....");
