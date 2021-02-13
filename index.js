@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
-app.use("/", classRoute);
+
+app.use("/timetable", classRoute);
 app.use("/user", userRoute);
 app.use(passport.initialize());
 
@@ -29,11 +30,6 @@ app.get(
   }
 );
 
-// mongoose.connect(process.env.MongoURI, {
-//   useNewUrlParser: true,
-//   useFindAndModify: true,
-//   useUnifiedTopology: true,
-// });
 
 connectDB();
 
