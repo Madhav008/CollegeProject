@@ -12,12 +12,14 @@ require("./auth/google")(passport);
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-// parse requests of content-type - application/json
 app.use(bodyParser.json());
+
 
 
 app.use("/timetable", classRoute);
 app.use("/user", userRoute);
+
+
 app.use(passport.initialize());
 
 app.get("/google", passport.authenticate("google", { scope: ["profile"] }));

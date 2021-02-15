@@ -1,12 +1,16 @@
 //Routes of classes
 const express = require("express");
-
+const Classes = require("../Model/classes");
 const router = express.Router();
 
-router.get("/section:section", async function (req, res) {
+router.get("/section/:section/:date", async function (req, res) {
   console.log(req.params.section);
-  var timetable = await Classes.find({ section: req.params.section });
+  console.log(req.params.date);
 
+  var timetable = await Classes.find({
+    section: req.params.section,
+    date: req.params.date,
+  });
   res.send(timetable);
 });
 
