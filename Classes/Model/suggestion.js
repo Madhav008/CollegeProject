@@ -15,7 +15,7 @@ var suggestionSchema = new mongoose.Schema({
   },
   isDisplay: {
     type: Boolean,
-    Default: true,
+    default: false,
   },
 });
 
