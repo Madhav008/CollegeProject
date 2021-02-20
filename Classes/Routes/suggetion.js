@@ -2,10 +2,9 @@ const express = require("express");
 const Suggetion = require("../Model/suggestion");
 const router = express.Router();
 
-router.get("/", function (req, res) {
+router.get("/",async function (req, res) {
   try {
-    var feedback = Suggetion.find({ isDisplay: true });
-
+    var feedback = await Suggetion.find({isDisplay:true});
     res.json(feedback);
   } catch (error) {
     res.json({ message: error });
